@@ -30,7 +30,7 @@ $(document).ready(function(){
 		});
 	});
 
-	$("#change").click(function(){
+	$("#submit").click(function(){
 		$.ajax({
 			type: "POST",
 			url: "sendValue.php",

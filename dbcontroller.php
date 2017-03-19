@@ -25,6 +25,10 @@ class DBController {
 			return $resultset;
 	}
 	
+	function runQueryWithoutResponse($query){
+		$result = $this->conn->query($query);
+	}
+	
 	function numRows($query) {
 		$result  = $this->conn->query($query);
 		$rowcount = $result->num_rows;
