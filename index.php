@@ -1,3 +1,4 @@
+var input=document.getElementById("search-box").value;
 <html>
 <head>
 <TITLE>jQuery AJAX Autocomplete - Country Example</TITLE>
@@ -28,18 +29,40 @@ $(document).ready(function(){
 		}
 		});
 	});
+
+	$("#change").click(function(){
+		$.ajax({
+			type: "POST",
+			url: "sendValue.php",
+			data:{road:$("#search-box").val(),vehicle:$("#vehicle-no").val()},
+			success: function(data){
+				$("#vehicle-no").html(data);
+			}
+		});
+	});
 });
 
 function selectCountry(val) {
 $("#search-box").val(val);
 $("#suggesstion-box").hide();
 }
+
+function send(){
+var road=document.getElementById("search-box").value;
+var vehicle=document.getElementById("vehicle-no").value;
+}
+
 </script>
 </head>
 <body>
 <div class="frmSearch">
 <input type="text" id="search-box" placeholder="Road Name" />
 <div id="suggesstion-box"></div>
+<br>
+<input type="text" id="vehicle-no" placeholder="Vehicle No">
+<br>
+<br>
+<input type="button" id="submit" value="Change">
 </div>
 </body>
 </html>
